@@ -16,10 +16,27 @@ import {
   useColorModeValue,
   Stack,
   Image,
-  Divider
+  Divider,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  FormControl,
+  FormLabel,
+  Input,
+  Heading,
+  InputLeftAddon,
+  InputGroup
 } from '@chakra-ui/react';
 import { Search2Icon } from '@chakra-ui/icons';
 import { GrLocation } from 'react-icons/gr';
+import { NavLink, useSearchParams} from 'react-router-dom';
+import { useState } from 'react';
+import { useEffect } from 'react';
+//import Restaurant from '../Pages/RestaurantPage';
 
 //const Links = ['Dashboard', 'Projects', 'Team'];
 
@@ -28,11 +45,30 @@ import { GrLocation } from 'react-icons/gr';
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const [text,setText]=useState("")
+  //const [value,setValue]=useState(false)
+  const [searchparams,setSearchParams]=useSearchParams()
+
    const { 
     isOpen: isOpenMenu, 
     onOpen: onOpenMenu, 
     onClose: onCloseMenu
 } = useDisclosure()
+
+const { 
+  isOpen: isOpenModal, 
+  onOpen: onOpenModal, 
+  onClose: onCloseModal
+} = useDisclosure()
+
+
+const handleChange=(e)=>{
+   setText(e.target.value)
+   
+}
+
+
+
 
   return (
     <>
@@ -52,12 +88,12 @@ export default function Navbar() {
 
             <Divider orientation='vertical'/>
 
-            <Box fontSize={18} color="red">
-                <Flex>
-                <GrLocation /> 
+            <Button fontSize={22} color="red" onClick={onOpenModal} leftIcon={<GrLocation /> }>
+                
+                
                 Find a restaurant
-                </Flex>
-            </Box>
+                
+            </Button>
            
           </HStack>
           <HStack spacing={10} >
@@ -84,9 +120,9 @@ export default function Navbar() {
                 {/* <Box  height="50px" spacing={10} > */}
                     <Flex justifyContent={'space-around'} >
                       
-                        <Box color="red">Breakfast</Box>
-                        <Box color="red">Entrees</Box>
-                        <Box color="red">Salads</Box>
+                       <NavLink to="/menu/breakfast"> <Box  color="red">Breakfast</Box> </NavLink>
+                        <NavLink to="/menu/entrees"><Box color="red">Entrees</Box></NavLink>
+                        <NavLink to="/menu/salads"><Box color="red">Salads</Box></NavLink>
                         <Box color="red">Sides</Box>
                         <Box color="red">Kid's Meals</Box>
                         <Box color="red">Treats</Box>
@@ -194,6 +230,38 @@ export default function Navbar() {
 
        
       </Box>
+
+      {/* {value ? <Restaurant /> :  */}
+
+
+      <Modal
+        
+        
+        isOpen={isOpenModal}
+        onClose={onCloseModal}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          {/* <ModalHeader>Create your account</ModalHeader> */}
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <Heading textAlign={'center'} mt={8} color="#004F71">Find a Restaurant</Heading>
+            <InputGroup mt={8}>
+              
+            <InputLeftAddon children={<Search2Icon />} />
+              <Input   placeholder="Enter address,city and state, or zip"  onChange={handleChange}/>
+              
+            </InputGroup>
+
+            <Button leftIcon={<GrLocation />} bgColor="white" color="red" mt={4}>Use my location</Button><br />
+            
+            <NavLink to="/locations"><Button mt={10} left="30%" width="40%" height="40px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" fontSize="xl" >Search</Button> </NavLink>
+            
+          </ModalBody>
+
+        
+        </ModalContent>
+      </Modal>
 
       
     </>

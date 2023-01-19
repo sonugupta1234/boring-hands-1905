@@ -10,14 +10,14 @@ function Home(){
         <Box width="100%" >
             <Flex>
                 <Box width="50%" textAlign={'left'}  mt={60} lineHeight="50px">
-                 <Text color="#858C90" fontSize='xl'>Treat yourself</Text>
-                 <Heading color="#DD0031">Make it a milkshake break</Heading>
+                 <Text color="#858C90" fontSize='xl'>Time for lunch</Text>
+                 <Heading color="#DD0031">An original then, an original now</Heading>
                  <Button mt={10} width="30%" height="70px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" fontSize="xl">Order Pickup</Button>
                  <Button mt={10} ml={6} width="30%" height="70px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" leftIcon={<CiDeliveryTruck />} fontSize="xl">Order Delivery</Button>
                 </Box>
 
-                <Box width="50%">
-                  <Image src="https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Daypart%20Hero/large-CFA2212020-Treat-Daypart-Desktop_710x580V2.jpg?h=580&w=710&la=en" alt=""/>
+                <Box width="50%" >
+                  <Image mt={40} src="https://www.gannett-cdn.com/presto/2018/08/21/PBRE/c78e47cc-c21b-4eda-85bd-967fe1d08c02-CFA1.png?width=660&height=348&fit=crop&format=pjpg&auto=webp" alt=""/>
                 </Box>
             </Flex>
         </Box>
