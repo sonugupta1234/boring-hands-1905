@@ -2,19 +2,27 @@ import Navbar from "../Components/Navbar";
 import { Heading,Box,Text, GridItem,Grid,Image,Button} from "@chakra-ui/react";
 import axios from "axios"
 import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect,useContext } from "react";
 import Footer from "../Components/Footer";
+import { AuthContext } from "../Context/AuthContextProvider";
+import { Navigate } from "react-router-dom";
 
 
 function Entrees(){
     
     const [data,setData]=useState([])
 
+    const {isAuth}=useContext(AuthContext)
+
     useEffect(()=>{
         axios.get(' http://localhost:8000/entrees')
         .then((res)=>setData(res.data))
         .catch((error)=>console.log(error))
     },[])
+
+    if(!isAuth){
+        return <Navigate to="/login" />
+    }
     return(
        <>
        <Navbar />

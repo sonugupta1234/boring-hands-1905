@@ -6,6 +6,10 @@ import Salads from "../Pages/Salads"
 import Entrees from "../Pages/Entrees"
 import Restaurant from "../Pages/RestaurantPage"
 import SingleRestaurant from "../Pages/SingleRestaurantPage"
+import Login from "../Pages/Login"
+import Form from "../Pages/Form"
+import Dashboard from "../Pages/Dashboard"
+import UberEats from "../Pages/UberEats"
 
 function AllRoutes(){
     return(
@@ -17,6 +21,10 @@ function AllRoutes(){
             <Route path="/menu/entrees" element={<Entrees />} />
             <Route path="/locations" element={<Restaurant />} />
             <Route path="/restaurant/:id" element={<SingleRestaurant />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/adminform" element={<Form />} />
+            <Route path="/admindashboard" element={<Dashboard />} />
+            <Route path="/deliveryuber" element={<UberEats />} />
          </Routes>
         </>
     )

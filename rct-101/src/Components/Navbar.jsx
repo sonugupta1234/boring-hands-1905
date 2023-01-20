@@ -29,7 +29,10 @@ import {
   Input,
   Heading,
   InputLeftAddon,
-  InputGroup
+  InputGroup,
+  useToast,
+  Select,
+  
 } from '@chakra-ui/react';
 import { Search2Icon } from '@chakra-ui/icons';
 import { GrLocation } from 'react-icons/gr';
@@ -49,6 +52,8 @@ export default function Navbar() {
   //const [value,setValue]=useState(false)
   const [searchparams,setSearchParams]=useSearchParams()
 
+  const toast = useToast()
+
    const { 
     isOpen: isOpenMenu, 
     onOpen: onOpenMenu, 
@@ -60,6 +65,13 @@ const {
   onOpen: onOpenModal, 
   onClose: onCloseModal
 } = useDisclosure()
+
+const { 
+  isOpen: isOpenSign, 
+  onOpen: onOpenSign, 
+  onClose: onCloseSign
+} = useDisclosure()
+
 
 
 const handleChange=(e)=>{
@@ -82,9 +94,9 @@ const handleChange=(e)=>{
             onClick={isOpen ? onClose : onOpen}
           /> */}
           <HStack   width="35%">
-            <Box  width="30%">
+           <NavLink to="/"><Box  width="70%">
                 <Image style={{width: "50%", borderRadius: "100%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIq-I5FkzG5r86SQoQCSBAiXVNG31yA8R9lQ&usqp=CAU" alt=""/>
-            </Box>
+            </Box></NavLink>
 
             <Divider orientation='vertical'/>
 
@@ -216,10 +228,18 @@ const handleChange=(e)=>{
             </Menu>
           </HStack>
 
-          <HStack spacing={20}>
-            <Box color="red">
-                Chick-fill-A-One (Sign In)
-            </Box>
+          <HStack spacing={6} color="red">
+            <Button onClick={onOpenSign}>
+               Sign Up
+            </Button>
+
+            <NavLink to="/login"><Button>
+              Sign In
+            </Button></NavLink>
+
+            <NavLink to="/adminform"><Button>
+              Admin
+            </Button></NavLink>
 
             <Button borderRadius="40px" h={50} w={100} bgColor="#C60628" color="white" border="none">Order food</Button>
             <Box>
@@ -260,6 +280,67 @@ const handleChange=(e)=>{
           </ModalBody>
 
         
+        </ModalContent>
+      </Modal>
+
+
+
+
+      <Modal
+       
+        isOpen={isOpenSign}
+        onClose={onCloseSign}
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Create your account</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody pb={6}>
+            <FormControl isRequired>
+              <FormLabel>First name</FormLabel>
+              <Input  placeholder='First name' />
+            </FormControl>
+
+            <FormControl mt={4} isRequired>
+              <FormLabel>Last name</FormLabel>
+              <Input placeholder='Last name' />
+            </FormControl>
+
+            <FormControl mt={4} isRequired>
+              <FormLabel>Mobile No</FormLabel>
+
+              <InputGroup >
+              <InputLeftAddon children={'+91'} />
+              <Input type="number" placeholder='Enter Mobile No' />
+              </InputGroup>
+            </FormControl>
+
+            <FormControl mt={4} isRequired>
+              <FormLabel>Email</FormLabel>
+              <Input placeholder='Email' />
+            </FormControl>
+
+            <FormControl mt={4} isRequired>
+              <FormLabel>Password</FormLabel>
+              <Input placeholder='password' />
+            </FormControl>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3} onClick={() =>
+        toast({
+          position: 'top-middle',
+          title: 'Account created.',
+          description: "We've created your account for you.",
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
+      }>
+              Submit
+            </Button>
+            <Button onClick={onCloseSign}>Cancel</Button>
+          </ModalFooter>
         </ModalContent>
       </Modal>
 
