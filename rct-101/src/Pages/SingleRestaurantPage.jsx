@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import axios from "axios"
 import { useEffect,useState } from "react";
-import {Box,Flex,Heading,Text,Button,Image,Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react"
-
+import {Box,Flex,Heading,Text,Button,Image,Tabs, TabList, TabPanels, Tab, TabPanel,Spacer } from "@chakra-ui/react"
+import Footer from "../Components/Footer";
 
 function SingleRestaurant(){
 
@@ -24,7 +24,7 @@ function SingleRestaurant(){
         <>
         <Box width="100%">
             <Flex>
-          <Box width="40%" textAlign={'left'} border="1px solid red">
+          <Box width="40%" textAlign={'left'}>
             <Box mt={20} ml={10} lineHeight={10}>
             <Heading color="#004F71">{data.location}</Heading>
             <Text>{data.time}</Text>
@@ -33,7 +33,7 @@ function SingleRestaurant(){
             <Box width="100%" mt={25}>
                 <Flex>
               <Button>Order Pickup</Button>
-              <Button ml={5}>Order Delivery</Button>
+              <Link to="/deliveryuber"><Button ml={5}>Order Delivery</Button></Link>
               <Button ml={5}>Order Catering</Button>
                </Flex>
             </Box>
@@ -41,7 +41,46 @@ function SingleRestaurant(){
             <Text mt={12}>Prices vary by location, start an order to view prices.
 
 Catering deliveries at this restaurant require a $300.00 subtotal minimum order size.</Text>
+
+             <Heading fontSize={'sm'} mt={6}>DELIVERY PARTNERS AVAILABLE</Heading>
+
+             <Flex mt={10}>
+               <Image src="https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Delivery/DD-p4.svg" alt=""/>
+               <Image ml={19} src="https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Delivery/delivery-icon-uber.svg" alt=""/>
+               <Image ml={15} src="https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Delivery/JET_Grubhub_logo_101by28.png" alt=""/>
+              
+             </Flex>
+
+             <Heading mt={10} fontSize={'md'}>Restaurant Details</Heading>
+             
+             <Box>HOURS</Box>
+             <Flex>
+               
+               <Box>Monday-Saturday</Box>
+               <Spacer />
+               <Box>6:30 AM-10:00 PM PST</Box>
+             </Flex>
+
+             <Flex>
+               
+               <Box>Sunday</Box>
+               <Spacer />
+               <Box>Closed</Box>
+             </Flex>
+
+             <Flex>
+               <Button>View restaurant menu</Button>
+               <Button ml={6}>Job opportunities</Button>
+             </Flex>
+
+             <Heading mt={30} fontSize={'md'}>AMENITIES AT THIS RESTAURANT</Heading>
+             <Text>Mobile Ordering, Drive-thru, Catering Pickup, Catering Delivery, WiFi, Playground, Breakfast</Text>
+
+             <Heading mt={30} fontSize={'md'}>PHONE NUMBER</Heading>
+             <Text>(661) 327-5260</Text>
            </Box>
+
+          
           </Box>
 
           <Box width="60%">
@@ -82,6 +121,8 @@ We help make a difference in your communities</p>
           </Box>
           </Flex>
         </Box>
+
+        <Footer />
         </>
     )
 }
