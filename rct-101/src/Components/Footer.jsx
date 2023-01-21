@@ -1,4 +1,5 @@
 import {Box,Text,Image,Flex,Button} from "@chakra-ui/react"
+import { Link } from "react-router-dom";
 
 function Footer(){
     return(
@@ -21,7 +22,7 @@ function Footer(){
             <Image mt={10} ml={5} width="30%" src="https://d2wl1kt18tqdum.cloudfront.net/v2.1.2462-stageb/Assets/Theming/css/img/google-play.png" alt=""/>
         </Flex> 
         <Button borderRadius="40px" h={50} w={100} mt={6} bgColor="#C60628" color="white" border="none" _hover={{bgColor:"#C60628"}}>Learn More</Button>
-        <Text color="#C60628">Already have an account?Sign-in</Text>
+        <Link to="/login"><Text color="#C60628">Already have an account?Sign-in</Text></Link>
       </Box>
        </Box>
         </>

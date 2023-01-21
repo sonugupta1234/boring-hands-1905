@@ -8,32 +8,34 @@ function Home(){
         <>
         <Navbar />
         <Box width="100%" >
-            <Flex>
-                <Box width="50%" textAlign={'left'}  mt={60} lineHeight="50px">
-                 <Text color="#858C90" fontSize='xl'>Time for lunch</Text>
-                 <Heading color="#DD0031">An original then, an original now</Heading>
-                 <Button mt={10} width="30%" height="70px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" fontSize="xl">Order Pickup</Button>
-                 <Button mt={10} ml={6} width="30%" height="70px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" leftIcon={<CiDeliveryTruck />} fontSize="xl">Order Delivery</Button>
+            <Flex  direction={{ base: "column", xl: "row" }}>
+                <Box w={{base: "60%", lg: "50%"}} textAlign={{base: 'center', lg: 'left'}}  mt={{base: "10", lg: "60"}} lineHeight="50px">
+                 <Text color="#858C90" fontSize='xl' ml={{base: "50"}}>Time for lunch</Text>
+                 <Heading color="#DD0031" ml={{base: "50"}}>An original then, an original now</Heading>
+                 <Flex  direction={{ base: "column", xl: "row" }} textAlign={{ base: "center" }}>
+                 <Button mt={10} ml={6} w={{base: "100%", lg: "30%"}} height="70px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" fontSize="xl">Order Pickup</Button>
+                 <Button mt={10} ml={6} w={{base: "100%", lg: "30%"}} height="70px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" leftIcon={<CiDeliveryTruck />} fontSize="xl">Order Delivery</Button>
+                 </Flex>
                 </Box>
 
-                <Box width="50%" >
-                  <Image mt={40} src="https://www.gannett-cdn.com/presto/2018/08/21/PBRE/c78e47cc-c21b-4eda-85bd-967fe1d08c02-CFA1.png?width=660&height=348&fit=crop&format=pjpg&auto=webp" alt=""/>
+                <Box w={{base: "100%", lg: "50%"}} >
+                  <Image mt={{base: "10", lg: "40"}} src="https://www.gannett-cdn.com/presto/2018/08/21/PBRE/c78e47cc-c21b-4eda-85bd-967fe1d08c02-CFA1.png?width=660&height=348&fit=crop&format=pjpg&auto=webp" alt=""/>
                 </Box>
             </Flex>
         </Box>
 
         <Box width="100%" >
-           <Flex>
-            <Box  ml={35} bgColor="#F4F8F9" borderRadius="30px" >
-              <Flex>
-              <Box width="40%" textAlign="left" ml={10} lineHeight="30px">
+           <Flex direction={{ base: "column", xl: "row" }} textAlign={{ base: "center" }}>
+            <Box  ml={{lg: "35", base: "5"}} bgColor="#F4F8F9" borderRadius="30px" w={{base: "70%", lg: "50%"}}>
+              <Flex direction={{ base: "column", xl: "row" }} textAlign={{ base: "center" }}>
+              <Box w={{base: "100%", lg: "40%"}} textAlign="left"  ml={{lg: "10"}} lineHeight="30px">
                 <Text mt={10}>Customer favorite</Text>
                 <Heading>Mac & Cheese</Heading>
                 <Text>Pair your entrée and drink with the warm, melty Mac & Cheese, baked in-restaurant with a special blend of cheddar, Parmesan, and Romano.</Text>
-                <Button mt={35} width="50%" height="40px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" >View product</Button>
+                <Button mt={35} width="50%" ml={{base: "50"}} height="40px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" >View product</Button>
               </Box>
 
-              <Box width="60%">
+              <Box w={{base: "100%", lg: "60%"}} mt={{base: "10"}}>
                  <Image width="100%" borderRadius="30px" src="https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Home%20Page%20Refresh/Home%20Page%20Refresh%20V2/CFA2212020-MacCheese-Module-Desktop_317x322V1.jpg?h=322&w=317&la=en" alt=""/>
               </Box>
               </Flex>
@@ -42,17 +44,17 @@ function Home(){
 
 
            
-            <Box  ml={30} bgColor="#F4F8F9" borderRadius="30px">
-            <Flex>
-              <Box width="40%" textAlign="left" ml={10} lineHeight="30px">
+            <Box  ml={{lg: "35", base: '5'}} mt={{base: "7"}} bgColor="#F4F8F9" borderRadius="30px" w={{base: "70%", lg: "50%"}}>
+            <Flex direction={{ base: "column", xl: "row" }} >
+              <Box w={{base: "100%", lg: "40%"}} textAlign="left" ml={{lg: "10"}} lineHeight="30px">
                 <Text mt={10}>Limited time</Text>
                 <Heading>Chicken Tortilla Soup</Heading>
                 <Text>Enjoy the perfect winter warm-up. Try a cupful of Chicken Tortilla Soup from now until April 1, 2023, while supplies last.</Text>
-                <Button mt={35} width="50%" height="40px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white">View product</Button>
+                <Button mt={35} ml={{base: "50"}} width="50%" height="40px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white">View product</Button>
               </Box>
 
-              <Box width="60%">
-                 <Image width="100%"  borderRadius="30px" src="https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Home%20Page%20Refresh/Home%20Page%20Refresh%20V2/Product_Featured2_Desktop.png?h=322&w=318&la=en" alt=""/>
+              <Box w={{base: "100%", lg: "60%"}} mt={{base: "7"}}>
+                 <Image   borderRadius="30px" src="https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Home%20Page%20Refresh/Home%20Page%20Refresh%20V2/Product_Featured2_Desktop.png?h=322&w=318&la=en" alt=""/>
               </Box>
               </Flex>
             </Box>
@@ -61,13 +63,13 @@ function Home(){
 
 
         <Box width="90%" borderRadius="30px"  margin="auto" mt={30}>
-            <Flex>
-            <Box width="40%" textAlign="left" ml={10}  mt={40}>
+            <Flex direction={{ base: "column", xl: "row" }}>
+            <Box w={{base: "60%", lg: "40%"}} textAlign="left" ml={10}  mt={{base: "1", lg: "40"}}>
               <Heading color="#004F71">Hungry for more ?</Heading>
-              <Button width="50%" height="40px" borderRadius="20px" color="red" mt={10}>View full menu</Button>
+              <Button w={{base: '60%', lg: '50%'}}  ml={{base: "30"}} height="40px" borderRadius="20px" color="red" mt={10}>View full menu</Button>
             </Box>
 
-            <Box width="60%">
+            <Box w={{base: "80%", lg: "60%"}} mt={{base: "7"}}>
                  <Image width="100%"  borderRadius="30px" src="https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Home%20Page%20Refresh/Home%20Page%20Refresh%20V2/large-Spicy_Chicken-fullmenu-desktop.jpg?h=271&w=633&la=en" alt=""/>
             </Box>
             </Flex>
