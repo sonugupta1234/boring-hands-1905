@@ -1,7 +1,9 @@
 import { useState, useContext } from "react"
-import { Input,Button } from "@chakra-ui/react"
+import { Input,Button,Select,Heading } from "@chakra-ui/react"
 import { Link, Navigate } from "react-router-dom"
 import { AuthContext } from "../Context/AuthContextProvider"
+import Navbar from "../Components/Navbar"
+import { useRef } from "react"
 
 
 const initstate={
@@ -16,7 +18,9 @@ function Form(){
 
     const [formstate,setFormState]=useState(initstate)
 
-    const {Post,post}=useContext(AuthContext)
+    const inputRef=useRef()
+
+    const {Post,post,dishes}=useContext(AuthContext)
 
     const handleChange=(e)=>{
         const val=e.target.value
@@ -30,7 +34,7 @@ function Form(){
         e.preventDefault()
 
         try {
-            const response= await fetch(' http://localhost:8000/breakfast',{
+            const response= await fetch(` http://localhost:8000/${inputRef.current.value}`,{
                 method: 'POST',
                 body: JSON.stringify(formstate),
                 headers: {
@@ -44,12 +48,17 @@ function Form(){
         }
     }
 
+    const handleSelect=(e)=>{
+         dishes(e.target.value)
+    }
+
     if(post){
         return <Navigate to="/admindashboard" />
     }
     return(
         <>
-        <h1>Admin Form</h1>
+        <Navbar />
+        <Heading mt={5}>Admin Form</Heading>
         <form onSubmit={handleSubmit}>
         <label>Image: </label>
         <Input width="40%" mt={8} type="link" name="image" value={formstate.image} placeholder="image" onChange={handleChange} /><br />
@@ -57,8 +66,14 @@ function Form(){
         <Input width="40%" mt={6} type="text" name="title" value={formstate.title} placeholder="title" onChange={handleChange} /><br />
         <label>Price: </label>
         <Input width="40%" mt={6} type="text" name="price" value={formstate.price} placeholder="price" onChange={handleChange} /><br />
-        
-        <Button type="submit" mt={5}>Submit</Button>
+        {/* <label >Menu: </label> */}
+        <Select mt={6} ml={500} width="20%" ref={inputRef} onChange={handleSelect}>
+            <option value="breakfast">Breakfast</option>
+            <option value="entrees">Entrees</option>
+            <option value="salads">Salad</option>
+        </Select>
+
+        <Button type="submit" mt={5} bgColor={'blue'} >Add Product</Button>
         </form>
         </>
     )

@@ -37,8 +37,9 @@ import {
 import { Search2Icon } from '@chakra-ui/icons';
 import { GrLocation } from 'react-icons/gr';
 import { NavLink, useSearchParams} from 'react-router-dom';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState,useContext } from 'react';
+
+import { AuthContext } from '../Context/AuthContextProvider';
 //import Restaurant from '../Pages/RestaurantPage';
 
 //const Links = ['Dashboard', 'Projects', 'Team'];
@@ -47,6 +48,8 @@ import { useEffect } from 'react';
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const {logout,isAuth}=useContext(AuthContext)
 
   const [text,setText]=useState("")
   //const [value,setValue]=useState(false)
@@ -70,6 +73,12 @@ const {
   isOpen: isOpenSign, 
   onOpen: onOpenSign, 
   onClose: onCloseSign
+} = useDisclosure()
+
+const { 
+  isOpen: isOpenAbout, 
+  onOpen: onOpenAbout, 
+  onClose: onCloseAbout
 } = useDisclosure()
 
 
@@ -178,7 +187,7 @@ const handleChange=(e)=>{
               
         </Menu>
 
-          <Menu>
+          <Menu isOpen={isOpenAbout}>
 
               <MenuButton
                 
@@ -190,16 +199,21 @@ const handleChange=(e)=>{
                 h="30px"
                 fontSize="md"
                 minW={0}
-                _hover={{textDecoration: "underline"}}>
+                _hover={{textDecoration: "underline"}}
+                onMouseEnter={onOpenAbout}
+                onMouseLeave={onCloseAbout}>
                 
                   
                 About
               </MenuButton>
-              <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuItem>Link 2</MenuItem>
+              <MenuList  onMouseEnter={onOpenAbout} onMouseLeave={onCloseAbout} width="125%" color="red"  height="50px">
+              <Flex justifyContent={'space-around'}>
+                <Box>Who We Are</Box>
+                <Box>Great Food</Box>
+                <Box>Giving Back</Box>
                 <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
+                <Box>History</Box>
+                 </Flex>
               </MenuList>
         </Menu>
 
@@ -228,7 +242,7 @@ const handleChange=(e)=>{
             </Menu>
           </HStack>
 
-          <HStack spacing={6} color="red">
+          <HStack  color="red">
             <Button onClick={onOpenSign}>
                Sign Up
             </Button>
@@ -241,7 +255,9 @@ const handleChange=(e)=>{
               Admin
             </Button></NavLink>
 
-            <Button borderRadius="40px" h={50} w={100} bgColor="#C60628" color="white" border="none">Order food</Button>
+            <Button isDisabled={isAuth} onClick={logout}>Sign Out</Button>
+
+            <NavLink to="/menu/breakfast"><Button borderRadius="40px" h={50} w={100} bgColor="#C60628" color="white" border="none">Order food</Button></NavLink>
             <Box>
             <Search2Icon />
             </Box>
