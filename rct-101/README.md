@@ -11,7 +11,7 @@ This Project is whole about ordering a item from an restaurant when you want to 
 
 ### `Landing Page`
 
-- ![Screenshot (199)](https://user-images.githubusercontent.com/112892522/213979840-4a5951a5-9311-434e-98ff-ed445bed2753.png)
+- ![Screenshot (200)](https://user-images.githubusercontent.com/112892522/213980189-089914c6-4e36-4c91-a9b4-c8d90cbf2c57.png)
 
 ### `Tech Stack`
 
