@@ -28,6 +28,6 @@ This Project is whole about ordering a item from an restaurant when you want to 
 ### `Project Details`
 
 . github link- https://github.com/sonugupta1234/boring-hands-1905 <br/>
-
+. live link- https://elaborate-sunshine-a68d4c.netlify.app/
 
 
