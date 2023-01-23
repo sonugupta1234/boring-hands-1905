@@ -13,7 +13,7 @@ function Restaurant(){
     // const {isLoaded} =useLoadScript({googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY})
 
     useEffect(()=>{
-        axios.get('http://localhost:8000/products ')
+        axios.get('https://rct-deployment-ii.onrender.com/products ')
         .then((res)=>setData(res.data))
         .catch((err)=>console.log(err))
     },[])

@@ -15,7 +15,7 @@ function Salads(){
     const {isAuth}=useContext(AuthContext)
 
     useEffect(()=>{
-        axios.get(' http://localhost:8000/salads')
+        axios.get(' https://rct-deployment-ii.onrender.com/salads')
         .then((res)=>setData(res.data))
         .catch((error)=>console.log(error))
     },[])

@@ -39,7 +39,7 @@ function Dashboard(){
     },[])
 
     const handledelete=async(id)=>{
-      const response= await fetch(`http://localhost:8000/${menu}/${id}`,{
+      const response= await fetch(`https://rct-deployment-ii.onrender.com//${menu}/${id}`,{
         method: 'DELETE'
       })
       const data=await response.json()

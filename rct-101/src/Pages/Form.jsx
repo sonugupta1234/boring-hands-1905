@@ -34,7 +34,7 @@ function Form(){
         e.preventDefault()
 
         try {
-            const response= await fetch(` http://localhost:8000/${inputRef.current.value}`,{
+            const response= await fetch(` https://rct-deployment-ii.onrender.com/${inputRef.current.value}`,{
                 method: 'POST',
                 body: JSON.stringify(formstate),
                 headers: {
