@@ -14,7 +14,7 @@ function Breakfast(){
     const {isAuth}=useContext(AuthContext)
 
     useEffect(()=>{
-        axios.get(' http://localhost:8000/breakfast')
+        axios.get(' https://rct-deployment-ii.onrender.com/breakfast')
         .then((res)=>setData(res.data))
         .catch((error)=>console.log(error))
     },[])

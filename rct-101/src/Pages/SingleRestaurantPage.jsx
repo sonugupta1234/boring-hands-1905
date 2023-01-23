@@ -12,7 +12,7 @@ function SingleRestaurant(){
     const [data,setData]=useState({})
 
     useEffect(()=>{
-      axios.get(`http://localhost:8000/products/${id}`)
+      axios.get(`https://rct-deployment-ii.onrender.com/products/${id}`)
       .then((res)=>
         setData(res.data))
       .catch((err)=>console.log(err))

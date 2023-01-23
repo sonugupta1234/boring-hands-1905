@@ -15,7 +15,7 @@ function Entrees(){
     const {isAuth}=useContext(AuthContext)
 
     useEffect(()=>{
-        axios.get(' http://localhost:8000/entrees')
+        axios.get(' https://rct-deployment-ii.onrender.com/entrees')
         .then((res)=>setData(res.data))
         .catch((error)=>console.log(error))
     },[])

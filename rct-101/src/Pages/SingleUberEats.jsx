@@ -16,7 +16,7 @@ function SingleUberEats(){
     const [cart,setCart]=useState(0)
 
     useEffect(()=>{
-      axios.get(`http://localhost:8000/breakfast/${id}`)
+      axios.get(`https://rct-deployment-ii.onrender.com/breakfast/${id}`)
       .then((res)=>
         setData(res.data))
       .catch((err)=>console.log(err))
