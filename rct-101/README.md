@@ -9,7 +9,7 @@ Yummy In the Tummy
 This Project is whole about ordering a item from an restaurant when you want to have meals. It was a solo project and I completed it within a span of 4 days..
 
 
-### Landing Page
+### `Landing Page`
 
 - ![image](Screenshot (199).png)
 
