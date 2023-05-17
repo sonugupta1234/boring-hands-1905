@@ -5,51 +5,50 @@ import { AuthContext } from '../Context/AuthContextProvider'
 import {Box,Heading,Input,Button, FormLabel, FormControl} from '@chakra-ui/react'
 
 
-export default function Login() {
+export default function LoginAdmin() {
 
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
 
     const {isAuth,login}=useContext(AuthContext)
 
-    const handleSubmit=async(e)=>{
-        e.preventDefault()
+    // const handleSubmit=async(e)=>{
+    //     e.preventDefault()
 
-        const logindata={
-            email,
-            password
-        }
-        try {
-            const response=await fetch('https://reqres.in/api/login',{
-                method: 'POST',
-                body: JSON.stringify(logindata),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            const data=await response.json()
-            login()
-        } catch (error) {
-            console.log(error)
-        }
+    //     const logindata={
+    //         email,
+    //         password
+    //     }
+    //     try {
+    //         const response=await fetch('https://reqres.in/api/login',{
+    //             method: 'POST',
+    //             body: JSON.stringify(logindata),
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             }
+    //         })
+    //         const data=await response.json()
+    //         login()
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
         
-    }
+    // }
 
-    if(isAuth){
-        return <Navigate to="/" />
-    }
+    // if(isAuth){
+    //     return <Navigate to="/" />
+    // }
 
     
     
     return (
         <Box>
             <Navbar/>
-           
+            <Heading>ADMIN LOGIN</Heading>
             <Box backgroundImage= 'https://img.freepik.com/free-photo/top-view-food-frame-with-copy-space_23-2148723447.jpg?w=740&t=st=1684321336~exp=1684321936~hmac=ac60cca85d51d906153354979a3805314053dbe98643b51d1b4508cc6d87c734' backgroundRepeat={'no-repeat'} width="70%" height="400px" margin={'auto'} >
             <Box margin="auto"  width="40%">
-            <Heading color="white">LOGIN</Heading>
-            <form id = "auth_form" onSubmit={handleSubmit} >
-                <FormLabel color="white" textAlign={'center'} mt={7}>Email</FormLabel>
+            <form id = "auth_form"  >
+                <FormLabel color="white" textAlign={'center'}>Email</FormLabel>
                 <Input
                     style = {{padding:"5px", margin: "10px", width: 200}}
                     type = "email"
