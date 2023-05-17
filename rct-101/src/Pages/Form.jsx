@@ -1,5 +1,5 @@
 import { useState, useContext } from "react"
-import { Input,Button,Select,Heading } from "@chakra-ui/react"
+import { Input,Button,Select,Heading, FormLabel, Box } from "@chakra-ui/react"
 import { Link, Navigate } from "react-router-dom"
 import { AuthContext } from "../Context/AuthContextProvider"
 import Navbar from "../Components/Navbar"
@@ -32,6 +32,7 @@ function Form(){
 
     const handleSubmit=async(e)=>{
         e.preventDefault()
+        alert("product added sucessfully")
 
         try {
             const response= await fetch(` https://rct-deployment-ii.onrender.com/${inputRef.current.value}`,{
@@ -58,23 +59,29 @@ function Form(){
     return(
         <>
         <Navbar />
-        <Heading mt={5}>Admin Form</Heading>
-        <form onSubmit={handleSubmit}>
-        <label>Image: </label>
-        <Input width="40%" mt={8} type="link" name="image" value={formstate.image} placeholder="image" onChange={handleChange} /><br />
-        <label>Title: </label>
-        <Input width="40%" mt={6} type="text" name="title" value={formstate.title} placeholder="title" onChange={handleChange} /><br />
-        <label>Price: </label>
-        <Input width="40%" mt={6} type="text" name="price" value={formstate.price} placeholder="price" onChange={handleChange} /><br />
-        {/* <label >Menu: </label> */}
-        <Select mt={6} ml={500} width="20%" ref={inputRef} onChange={handleSelect}>
+        <Box backgroundImage={'https://img.freepik.com/free-photo/pastel-blue-vignette-concrete-textured-background_53876-102637.jpg?w=740&t=st=1684328571~exp=1684329171~hmac=72a52fd988a53afa6558db397f3221b08e5dd3144ea4f9c0ffd8e53d60b60fb2'}>
+        <Heading >Admin Form</Heading>
+        <Box width="50%" margin="auto" >
+        <form onSubmit={handleSubmit} id="admin">
+        <FormLabel mt={6}>Image </FormLabel><br/>
+        <Input width="100%" mt={0} type="link" border="1px solid black" name="image" value={formstate.image} placeholder="image" onChange={handleChange} /><br />
+        <FormLabel mt={4}>Title </FormLabel><br/>
+        <Input width="100%"  type="text" name="title" value={formstate.title} border="1px solid black" placeholder="title" onChange={handleChange} /><br />
+        <FormLabel mt={4}>Price </FormLabel><br/>
+        <Input width="100%"  type="text" name="price" value={formstate.price} border="1px solid black" placeholder="price" onChange={handleChange} /><br />
+        
+        <FormLabel mt={4}>Menu </FormLabel><br/>
+         <Select   width="100%" ref={inputRef} onChange={handleSelect}  border="1px solid black">
+            <option value="">Select Option</option>
             <option value="breakfast">Breakfast</option>
             <option value="entrees">Entrees</option>
             <option value="salads">Salad</option>
         </Select>
 
-        <Button type="submit" mt={5} bgColor={'blue'} >Add Product</Button>
+        <Button type="submit" mt={5} bgColor={'aqua'} form="admin" >Add Product</Button>
         </form>
+        </Box>
+        </Box>
         </>
     )
 }

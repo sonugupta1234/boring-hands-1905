@@ -2,6 +2,7 @@ import {Box,Flex,Text,Heading,Button,Image} from "@chakra-ui/react"
 import { CiDeliveryTruck } from 'react-icons/ci'
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import { Link } from "react-router-dom";
 
 function Home(){
     return(
@@ -13,12 +14,12 @@ function Home(){
                  <Text color="#858C90" fontSize='xl' ml={{base: "50"}}>Time for lunch</Text>
                  <Heading color="#DD0031" ml={{base: "50"}}>An original then, an original now</Heading>
                  <Flex  direction={{ base: "column", xl: "row" }} textAlign={{ base: "center" }}>
-                 <Button mt={10} ml={6} w={{base: "100%", lg: "30%"}} height="70px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" fontSize="xl">Order Pickup</Button>
-                 <Button mt={10} ml={6} w={{base: "100%", lg: "30%"}} height="70px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" leftIcon={<CiDeliveryTruck />} fontSize="xl">Order Delivery</Button>
+                 <Link to="/menu/entrees"><Button mt={10} ml={6} w={{base: "100%", lg: "90%"}} height="70px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" fontSize="xl">Order Pickup</Button></Link>
+                 <Link to="/menu/salads"><Button mt={10} ml={6} w={{base: "100%", lg: "90%"}} height="70px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" leftIcon={<CiDeliveryTruck />} fontSize="xl">Order Delivery</Button></Link>
                  </Flex>
                 </Box>
 
-                <Box w={{base: "100%", lg: "50%"}} >
+                <Box w={{base: "80%", lg: "50%"}} >
                   <Image mt={{base: "10", lg: "40"}} src="https://www.gannett-cdn.com/presto/2018/08/21/PBRE/c78e47cc-c21b-4eda-85bd-967fe1d08c02-CFA1.png?width=660&height=348&fit=crop&format=pjpg&auto=webp" alt=""/>
                 </Box>
             </Flex>
@@ -78,31 +79,31 @@ function Home(){
 
         {/* <Image width="80%" borderRadius="30px" margin="auto" mt={30}  src="https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Home%20Page%20Refresh/Home%20Page%20Refresh%20V2/Catering_Desktop_compressed.jpg" alt=""/> */}
         
-        <Box  borderRadius="30px" border="1px solid #EDF2F7" width="80%" margin="auto" mt={30} height="430px" backgroundImage="url('https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Home%20Page%20Refresh/Home%20Page%20Refresh%20V2/Catering_Desktop_compressed.jpg')"
-  backgroundPosition="center"
+        <Box  borderRadius="30px" border="1px solid #EDF2F7"  w={{base: "70%", lg: "80%"}} margin={{lg: "auto"}} ml={{base: "10px"}} mt={30} h={"430px"} backgroundImage="url('https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Home%20Page%20Refresh/Home%20Page%20Refresh%20V2/Catering_Desktop_compressed.jpg')"
+  backgroundPosition= "center"
   backgroundRepeat="no-repeat">
 
-       <Box  width="40%" height="300px"  m={20} bgColor="white" borderRadius="30px"  >
+       <Box  w={{base: "100%", lg: "40%"}} height="300px"  m={{lg: "20px"}} bgColor="white" borderRadius="30px"  >
          <Box textAlign="left" ml={10} lineHeight="30px" >
         <Heading mt={15} color="#004F71">Catering for any gathering</Heading>
         <Text>From breakfast items, party trays to packaged meals, Chick-fil-A® Catering has something for every occasion.</Text>
-        <Button width="50%" height="40px" borderRadius="20px" color="white" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} mt={10}>View catering menu</Button>
+        <Link to="/menu/breakfast"><Button w={{base: "70%", lg: "50%"}} height="40px" borderRadius="20px" color="white" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} mt={{base: "7px", lg: "10px"}}>View catering menu</Button></Link>
         </Box>
        </Box>
 
      </Box>
 
        <Box width="90%" borderRadius="30px"  margin="auto" mt={30}>
-            <Flex>
-            <Box width="40%" textAlign="left" ml={10}  mt={40} lineHeight="30px">
+            <Flex direction={{ base: "column", xl: "row" }}>
+            <Box width={{lg: "40%", base: "80%"}} textAlign="left"   mt={{lg: "40", base: "7"}} lineHeight="30px">
               <Heading color="#004F71">Eat more, receive more</Heading>
               <Text>Order ahead on the app or online, and receive points from qualifying purchases. Then, use those points to redeem available rewards (Waffle Potato Fries™, anyone?).</Text>
-              <Button width="80%" height="40px" borderRadius="20px" color="red" mt={10}>Learn how our loyality program works</Button>
-              <Button mt={35} width="50%" height="40px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white">Join Chick-fil-A One</Button>
+              <Button width={{lg: "80%", base: "100%"}} height="40px" borderRadius="20px" color="red" mt={10}>Learn how our loyality program works</Button>
+              <Button mt={35} width={{lg: "50%", base: "100%"}} height="40px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white">Join Chick-fil-A One</Button>
             </Box>
 
-            <Box width="60%">
-                 <Image width="100%" mt={55} borderRadius="30px" height="500px" src="https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Home%20Page%20Refresh/Home%20Page%20Refresh%20V2/large-CFA2212020-GroupCandid-Module2-Desktop_648x454.jpg?h=454&w=648&la=en" alt=""/>
+            <Box width={{lg: "60%", base: "80%"}}>
+                 <Image width="100%" mt={55} borderRadius="30px" h={{lg: "500px", base: "350px"}} src="https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Home%20Page%20Refresh/Home%20Page%20Refresh%20V2/large-CFA2212020-GroupCandid-Module2-Desktop_648x454.jpg?h=454&w=648&la=en" alt=""/>
             </Box>
             </Flex>
         </Box>
@@ -112,20 +113,20 @@ function Home(){
 
 
 
-        <Box width="90%" borderRadius="30px"  margin="auto" mt={30}>
-            <Flex>
+        <Box width="90%" borderRadius="30px"  margin="auto"  mt={{lg: "30"}}>
+            <Flex direction={{ base: "column", xl: "row" }}>
 
 
-            <Box width="60%">
+            <Box width={{lg: "60%", base: "80%"}}>
                  <Image width="100%" mt={55} borderRadius="30px" src="https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Home%20Page%20Refresh/Home%20Page%20Refresh%20V2/large-eGiftCard_Landing-Page_Hero_Desktop_Cow1_636x415.jpg?h=415&w=636&la=en" alt=""/>
             </Box>
 
-            <Box width="40%" textAlign="left" ml={10}  mt={40} lineHeight="30px">
+            <Box width={{lg: "40%", base: "80%"}} textAlign="left" ml={{lg: "10"}}   mt={{lg: "40", base: "7"}} lineHeight="30px">
               <Heading color="#004F71">A little thing for those you love a lot</Heading>
               <Text>No matter the season, a gift card from Chick-fil-A is the gift that keeps on chicken.</Text>
               
-              <Button mt={35} width="50%" height="40px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" >Learn about gift cards</Button>
-              <Button width="40%" height="40px" borderRadius="20px" color="red" mt={10} ml={6}>Shop eGift cards</Button>
+              <Button mt={35} width={{lg: "50%", base: "90%"}} height="40px" borderRadius="20px" bgColor="#CC052B" _hover={{bgColor: "#CC052B"}} color="white" >Learn about gift cards</Button>
+              <Button width={{lg: "40%", base: "90%"}} height="40px" borderRadius="20px" color="red" mt={10} ml={{lg: "6"}}>Shop eGift cards</Button>
             </Box>
 
            
